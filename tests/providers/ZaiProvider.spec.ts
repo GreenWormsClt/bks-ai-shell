@@ -14,6 +14,17 @@ describe("ZaiProvider", () => {
     expect(model.modelId).toBe("glm-5.1");
   });
 
+  it("maps Coding Plan entries to their API model IDs", () => {
+    const provider = new ZaiProvider({
+      apiKey: "test-key",
+    });
+
+    const model = provider.getModel("glm-5.1-coding-plan");
+
+    expect(model.provider).toBe("zhipu.chat");
+    expect(model.modelId).toBe("glm-5.1");
+  });
+
   it("lists the configured Z.AI GLM models", async () => {
     const provider = new ZaiProvider({
       apiKey: "test-key",

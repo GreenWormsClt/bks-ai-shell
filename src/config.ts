@@ -19,6 +19,8 @@ export type ModelInfo = {
   id: string;
   displayName: string;
   contextWindow?: number;
+  apiModelId?: string;
+  apiBaseURL?: string;
 };
 
 export const providerConfigs = {
@@ -169,6 +171,38 @@ export const providerConfigs = {
       {
         id: "glm-4.5-air",
         displayName: "glm-4.5-air",
+        contextWindow: 128_000,
+        temperature: defaultTemperature,
+      },
+      {
+        id: "glm-5.1-coding-plan",
+        displayName: "glm-5.1 (Coding Plan)",
+        apiModelId: "glm-5.1",
+        apiBaseURL: "https://api.z.ai/api/coding/paas/v4",
+        contextWindow: 200_000,
+        temperature: defaultTemperature,
+      },
+      {
+        id: "glm-5-turbo-coding-plan",
+        displayName: "glm-5-turbo (Coding Plan)",
+        apiModelId: "glm-5-turbo",
+        apiBaseURL: "https://api.z.ai/api/coding/paas/v4",
+        contextWindow: 200_000,
+        temperature: defaultTemperature,
+      },
+      {
+        id: "glm-4.7-coding-plan",
+        displayName: "glm-4.7 (Coding Plan)",
+        apiModelId: "glm-4.7",
+        apiBaseURL: "https://api.z.ai/api/coding/paas/v4",
+        contextWindow: 200_000,
+        temperature: defaultTemperature,
+      },
+      {
+        id: "glm-4.5-air-coding-plan",
+        displayName: "glm-4.5-air (Coding Plan)",
+        apiModelId: "glm-4.5-air",
+        apiBaseURL: "https://api.z.ai/api/coding/paas/v4",
         contextWindow: 128_000,
         temperature: defaultTemperature,
       },
