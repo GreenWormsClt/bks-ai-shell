@@ -133,6 +133,12 @@ export const providerConfigs = {
     /** @link https://docs.z.ai/devpack/overview */
     models: [
       {
+        id: "glm-5.2",
+        displayName: "glm-5.2",
+        contextWindow: 1_000_000,
+        temperature: defaultTemperature,
+      },
+      {
         id: "glm-5.1",
         displayName: "glm-5.1",
         contextWindow: 200_000,
@@ -172,6 +178,14 @@ export const providerConfigs = {
         id: "glm-4.5-air",
         displayName: "glm-4.5-air",
         contextWindow: 128_000,
+        temperature: defaultTemperature,
+      },
+      {
+        id: "glm-5.2-coding-plan",
+        displayName: "glm-5.2 (Coding Plan)",
+        apiModelId: "glm-5.2",
+        apiBaseURL: "https://api.z.ai/api/coding/paas/v4",
+        contextWindow: 1_000_000,
         temperature: defaultTemperature,
       },
       {
