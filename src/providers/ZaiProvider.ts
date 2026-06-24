@@ -3,7 +3,12 @@ import { providerConfigs } from "@/config";
 import { BaseProvider } from "@/providers/BaseProvider";
 import { createZhipu } from "zhipu-ai-provider";
 
-const ZAI_BASE_URL = "https://api.z.ai/api/paas/v4";
+const ZAI_GENERAL_BASE_URL = "https://api.z.ai/api/paas/v4";
+
+type ZaiModelConfig = (typeof providerConfigs.zai.models)[number] & {
+  apiModelId?: string;
+  apiBaseURL?: string;
+};
 
 export class ZaiProvider extends BaseProvider {
   constructor(private options: { apiKey: string }) {
@@ -15,10 +20,14 @@ export class ZaiProvider extends BaseProvider {
   }
 
   getModel(id: string) {
+    const config = providerConfigs.zai.models.find(
+      (m) => m.id === id,
+    ) as ZaiModelConfig | undefined;
+
     return createZhipu({
-      baseURL: ZAI_BASE_URL,
+      baseURL: config?.apiBaseURL ?? ZAI_GENERAL_BASE_URL,
       apiKey: this.options.apiKey,
-    }).languageModel(id);
+    }).languageModel(config?.apiModelId ?? id);
   }
 
   async listModels(): Promise<ModelInfo[]> {
